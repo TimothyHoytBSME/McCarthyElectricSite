@@ -1,4 +1,7 @@
 
+/*This site uses master values to control
+zooming and scaling for responsive design*/
+
 html {
   /* Margin Variables */
   --white-color: rgb(243,243,243);
@@ -8,10 +11,10 @@ html {
   --dark-grey-color: rgb(39, 39, 39);
   --highlight-color: rgb(240, 135, 7);
 
-  /* Margin Variables */
-  --font-base: 1rem; /*DO NOT CHANGE!!!!*/
-  --font-base-min: 1.25vh; /*positive vh only*/
-  --font-base-max: 3.2vh; /*positive vh only*/
+  /* Scaling Variables */
+  --scale: 1rem; /*DO NOT CHANGE!!!!*/
+  --scale-min: 1.25vh; /*positive vh only*/
+  --scale-max: 3.2vh; /*positive vh only*/
 
   /* Margin Variables */
   --margin-base: 0.5; /*positive number only*/
@@ -20,9 +23,9 @@ html {
   --margin-half: calc(var(--margin-base) * 0.5); 
   --margin-quarter: calc(var(--margin-base) * 0.25); 
   --margin-large: calc(var(--margin-base) * 10);
-  --margin-header-top: 7; /*positive number only*/
+  --margin-header-top: 6.5; /*positive number only*/
 
-  /* Margin Variables */
+  /* size Variables */
   --logo-height: 2; /*positive number only*/
   --h1-height: 1.3; /*positive number only*/
   --h2-height: 1.2; /*positive number only*/
@@ -76,7 +79,7 @@ main {
 }
 
 a {
-  font-size: clamp(var(--font-base-min), var(--font-base), var(--font-base-max));
+  font-size: clamp(var(--scale-min), var(--scale), var(--scale-max));
   color: var(--light-grey-color);
   text-decoration: none;
   -webkit-transition: color 0.5s;
@@ -97,23 +100,23 @@ h1, h2, h3, h4 {
 }
 
 h1{
-  font-size: clamp(calc(var(--h1-height) * var(--font-base-min)), calc(var(--h1-height) * var(--font-base)), calc(var(--h1-height) * var(--font-base-max)));
-  height: clamp(calc(var(--h1-height) * var(--font-base-min)), calc(var(--h1-height) * var(--font-base)), calc(var(--h1-height) * var(--font-base-max)));
+  font-size: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
+  height: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
 }
 
 h2{
-  font-size: clamp(calc(var(--h2-height) * var(--font-base-min)), calc(var(--h2-height) * var(--font-base)), calc(var(--h2-height) * var(--font-base-max)));
-  height: clamp(calc(var(--h2-height) * var(--font-base-min)), calc(var(--h2-height) * var(--font-base)), calc(var(--h2-height) * var(--font-base-max)));
+  font-size: clamp(calc(var(--h2-height) * var(--scale-min)), calc(var(--h2-height) * var(--scale)), calc(var(--h2-height) * var(--scale-max)));
+  height: clamp(calc(var(--h2-height) * var(--scale-min)), calc(var(--h2-height) * var(--scale)), calc(var(--h2-height) * var(--scale-max)));
 }
 
 h3{
-  font-size: clamp(calc(var(--h3-height) * var(--font-base-min)), calc(var(--h3-height) * var(--font-base)), calc(var(--h3-height) * var(--font-base-max)));
-  height: clamp(calc(var(--h3-height) * var(--font-base-min)), calc(var(--h3-height) * var(--font-base)), calc(var(--h3-height) * var(--font-base-max)));
+  font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
+  height: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
 }
 
 h4{
-  font-size: clamp(calc(var(--h4-height) * var(--font-base-min)), calc(var(--h4-height) * var(--font-base)), calc(var(--h4-height) * var(--font-base-max)));
-  height: clamp(calc(var(--h4-height) * var(--font-base-min)), calc(var(--h4-height) * var(--font-base)), calc(var(--h4-height) * var(--font-base-max)));
+  font-size: clamp(calc(var(--h4-height) * var(--scale-min)), calc(var(--h4-height) * var(--scale)), calc(var(--h4-height) * var(--scale-max)));
+  height: clamp(calc(var(--h4-height) * var(--scale-min)), calc(var(--h4-height) * var(--scale)), calc(var(--h4-height) * var(--scale-max)));
 }
 
 .mcelec-nav {
@@ -131,29 +134,43 @@ h4{
 }
 
 #mcelec-logo-svg{
-  height: clamp(calc(var(--logo-height) * var(--font-base-min)), calc(var(--logo-height) * var(--font-base)), calc(var(--logo-height) * var(--font-base-max)));
-  margin-bottom: clamp(calc(var(--margin-base) * var(--font-base-min)), calc(var(--margin-base) * var(--font-base)), calc(var(--margin-base) * var(--font-base-max)));
-  margin-top: clamp(calc(var(--margin-base) * var(--font-base-min)), calc(var(--margin-base) * var(--font-base)), calc(var(--margin-base) * var(--font-base-max)));
+  height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
+  margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  margin-top: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-.mcelec-nav.scrolled #mcelec-logo-svg{
+.mcelec-nav.scrolled #mcelec-logo-side-svg{
+  margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
+  margin-left: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#mcelec-logo-side-svg{
   height: 0;
   margin-top: 0;
 }
 
+
+
 #mcelec-name {
   color: var(--white-color);
-  margin-bottom: clamp(calc(var(--margin-three-quarter) * var(--font-base-min)), calc(var(--margin-three-quarter) * var(--font-base)), calc(var(--margin-three-quarter) * var(--font-base-max)));
+  margin-bottom: clamp(calc(var(--margin-three-quarter) * var(--scale-min)), calc(var(--margin-three-quarter) * var(--scale)), calc(var(--margin-three-quarter) * var(--scale-max)));
   font-weight: 600;
   font-family: Helvetica, sans-serif;
 }
 
 .mcelec-nav hr{
-  width: clamp(calc(var(--hr-width) * var(--font-base-min)), calc(var(--hr-width) * var(--font-base)), calc(var(--hr-width) * var(--font-base-max)));
-  height: clamp(calc(var(--hr-height) * var(--font-base-min)), calc(var(--hr-height) * var(--font-base)), calc(var(--hr-height) * var(--font-base-max)));
+  width: clamp(calc(var(--hr-width) * var(--scale-min)), calc(var(--hr-width) * var(--scale)), calc(var(--hr-width) * var(--scale-max)));
+  height: clamp(calc(var(--hr-height) * var(--scale-min)), calc(var(--hr-height) * var(--scale)), calc(var(--hr-height) * var(--scale-max)));
   background: var(--white-color);
   border: none;
 }
@@ -161,9 +178,9 @@ h4{
 .mcelec-nav ul {
   display: flex;
   justify-content: space-between;
-  gap: clamp(calc(var(--margin-base) * var(--font-base-min)), calc(var(--margin-base) * var(--font-base)), calc(var(--margin-base) * var(--font-base-max)));
-  margin-top: clamp(calc(var(--margin-half) * var(--font-base-min)), calc(var(--margin-half) * var(--font-base)), calc(var(--margin-half) * var(--font-base-max)));
-  margin-bottom: clamp(calc(var(--margin-base) * var(--font-base-min)), calc(var(--margin-base) * var(--font-base)), calc(var(--margin-base) * var(--font-base-max)));
+  gap: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  margin-top: clamp(calc(var(--margin-half) * var(--scale-min)), calc(var(--margin-half) * var(--scale)), calc(var(--margin-half) * var(--scale-max)));
+  margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
 }
 
 .mcelec-nav ul li{
@@ -171,7 +188,7 @@ h4{
 }
 
 .mcelec-nav ul li a {
-  letter-spacing: clamp(calc(var(--nav-letter-space) * var(--font-base-min)), calc(var(--nav-letter-space) * var(--font-base)), calc(var(--nav-letter-space) * var(--font-base-max)));
+  letter-spacing: clamp(calc(var(--nav-letter-space) * var(--scale-min)), calc(var(--nav-letter-space) * var(--scale)), calc(var(--nav-letter-space) * var(--scale-max)));
   font-weight: 500;
   text-decoration: none;
 }
@@ -183,26 +200,76 @@ h4{
   flex-direction: column;
   align-items: center;
   position: relative;
-  top: -clamp(calc(var(--after-height) * var(--font-base-min)), calc(var(--after-height) * var(--font-base)), calc(var(--after-height) * var(--font-base-max)));
+  top: -clamp(calc(var(--after-height) * var(--scale-min)), calc(var(--after-height) * var(--scale)), calc(var(--after-height) * var(--scale-max)));
 }
 
 /* TODO: detect scroll location to set active */
 .mcelec-nav ul li.active a:after {
   content: '';
-  width: clamp(calc(var(--after-width) * var(--font-base-min)), calc(var(--after-width) * var(--font-base)), calc(var(--after-width) * var(--font-base-max)));
-  height: clamp(calc(var(--after-height) * var(--font-base-min)), calc(var(--after-height) * var(--font-base)), calc(var(--after-height) * var(--font-base-max)));
+  width: clamp(calc(var(--after-width) * var(--scale-min)), calc(var(--after-width) * var(--scale)), calc(var(--after-width) * var(--scale-max)));
+  height: clamp(calc(var(--after-height) * var(--scale-min)), calc(var(--after-height) * var(--scale)), calc(var(--after-height) * var(--scale-max)));
   background: var(--highlight-color);
 }
+
+#nav-contact{
+  margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
+  margin-right: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter:  saturate(0%) brightness(300%);
+
+}
+
+#nav-phone-icon{
+  height: 100%;
+
+}
+
+#nav-phone-svg{
+  height: 100%;
+} 
+
+#nav-contact:hover{
+  filter: saturate(1000%) hue-rotate(60deg) brightness(250%);
+  color: var(--light-gey-color)
+}
+
+#nav-phone-number{
+  height: 1em;
+  width: 8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  margin-left: 3%;
+}
+
+.mcelec-nav.scrolled #mcelec-logo-svg{
+  height: 0;
+  margin-top: 0;
+}
+
+
+
+
 
 #mcelec-header {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
-  margin-top: clamp(calc(var(--margin-header-top) * var(--font-base-min)), calc(var(--margin-header-top) * var(--font-base)), calc(var(--margin-header-top) * var(--font-base-max)));
-  margin-bottom: clamp(calc(var(--margin-large) * var(--font-base-min)), calc(var(--margin-large) * var(--font-base)), calc(var(--margin-large) * var(--font-base-max)));
+  margin-top: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
+  margin-bottom: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max)));
   
-  /* height: clamp(calc(var(--header-height) * var(--font-base-min)), calc(var(--header-height) * var(--font-base)), calc(var(--header-height) * var(--font-base-max))); */
+  /* height: clamp(calc(var(--header-height) * var(--scale-min)), calc(var(--header-height) * var(--scale)), calc(var(--header-height) * var(--scale-max))); */
   height: 70vh;
   display: flex;
   flex-direction: column;
@@ -242,18 +309,20 @@ h4{
   -moz-backdrop-filter: 0px;
   -ms-backdrop-filter: 0px;
   backdrop-filter: blur(1vh);
-  padding: 2vh;
+  width: 100%;
 }
 
 #mcelec-statement{
+  margin: 2vh;
   text-align: center;
   font-weight: 700;
-  font-size: clamp(calc(var(--h3-height) * var(--font-base-min)), calc(var(--h3-height) * var(--font-base)), calc(var(--h3-height) * var(--font-base-max)));
-  font-family: 'Raleway';
+  font-style: italic;
+  font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
+  font-family: 'Sawarabi Mincho';
   /* -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.737);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.737);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.737); */
-  text-shadow: black -0.075em 0.075em 0.1em;
+  text-shadow: black -0.03em 0.03em 0.1em;
 }
 
 #mcelec-articles article{
@@ -321,10 +390,10 @@ h4{
   justify-content: center;
   background: transparent;
   color: var(--white-color);
-  letter-spacing: clamp(calc(var(--nav-letter-space) * var(--font-base-min)), calc(var(--nav-letter-space) * var(--font-base)), calc(var(--nav-letter-space) * var(--font-base-max)));
+  letter-spacing: clamp(calc(var(--nav-letter-space) * var(--scale-min)), calc(var(--nav-letter-space) * var(--scale)), calc(var(--nav-letter-space) * var(--scale-max)));
   font-weight: 500;
-  font-size: clamp(calc(var(--h1-height) * var(--font-base-min)), calc(var(--h1-height) * var(--font-base)), calc(var(--h1-height) * var(--font-base-max)));
-  --btn-h: clamp(calc(var(--btn-height) * var(--font-base-min)), calc(var(--btn-height) * var(--font-base)), calc(var(--btn-height) * var(--font-base-max)));
+  font-size: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
+  --btn-h: clamp(calc(var(--btn-height) * var(--scale-min)), calc(var(--btn-height) * var(--scale)), calc(var(--btn-height) * var(--scale-max)));
   height: var(--btn-h);
   width: calc(var(--btn-h) * 9);
   -webkit-transition: 0.3s;
@@ -357,8 +426,32 @@ textarea {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  html{
+    --h1-height: 1;
+    --logo-height: 1.75;
+  }
 
-@media screen and (max-width: 768px) {
+  #nav-contact{
+    --mt: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
+    --mr: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+    margin-top: calc(var(--mt) * 2.2);
+    margin-right: calc(var(--mr) * 3);
+  }
+
+  .mcelec-nav.scrolled #nav-contact{
+    --mt: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
+    --mr: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+    margin-top: calc(var(--mt) * 1);
+    margin-right: calc(var(--mr) * 3);
+  }
+
+  #nav-phone-number{
+    visibility: hidden;
+    width: 0;
+
+  }
+
   /* #mcelec-header {
     background-position: center center;
     background-attachment: scroll;
