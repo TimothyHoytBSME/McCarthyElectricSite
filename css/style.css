@@ -22,8 +22,8 @@ html {
   --margin-three-quarter: calc(var(--margin-base) * 0.75); 
   --margin-half: calc(var(--margin-base) * 0.5); 
   --margin-quarter: calc(var(--margin-base) * 0.25); 
-  --margin-large: calc(var(--margin-base) * 10);
-  --margin-header-top: 6.5; /*positive number only*/
+  --margin-large: calc(var(--margin-base) * 5);
+  --margin-header-top: 8; /*positive number only*/
 
   /* size Variables */
   --logo-height: 2; /*positive number only*/
@@ -35,7 +35,7 @@ html {
   --nav-shift: -6; /*negative number only*/
   --hr-width: 15; /*positive number only*/
   --hr-height: 0.05; /*positive number only*/
-  --btn-height: 1.6;
+  --btn-height: 1.8;
 
   scroll-behavior: smooth;
 }
@@ -156,28 +156,31 @@ h4{
 #mcelec-logo-svg{
   height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-  margin-top: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
-
-#mcelec-nav.scrolled #mcelec-logo-side-svg{
   margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
-  margin-left: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-  height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 #mcelec-logo-side-svg{
   height: 0;
   margin-top: 0;
 }
+
+#mcelec-nav.scrolled #mcelec-logo-side-svg{
+  /* margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max))); */
+  margin-left: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  height: 40%;
+}
+
+
 
 #mcelec-name {
   color: var(--white-color);
@@ -223,14 +226,14 @@ h4{
 }
 
 #nav-contact{
-  margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
   margin-right: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-  height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
+  --hh: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
+  height: var(--hh);
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
   position: absolute;
-  top: 0;
+  top: calc(calc(100% - var(--hh)) / 2);
   right: 0;
   display: flex;
   align-items: center;
@@ -272,10 +275,10 @@ h4{
 /*Header*/
 
 #mcelec-header {
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* position: relative; */
   margin-top: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
   margin-bottom: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max)));
   height: 70vh;
@@ -283,7 +286,7 @@ h4{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #mcelec-header .overlay {
@@ -297,11 +300,8 @@ h4{
 }
 
 #header-content{
-  height: 100%;
-  width: 70%;
-  margin: 5vh;
+  width: 50%;
   z-index: 2;
-  margin-inline: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -311,27 +311,24 @@ h4{
   -ms-border-radius: 0px;
   border: 0.1vh solid var(--light-grey-color);
   border-radius: 0px;
-}
-
-#statement-pane{
   -webkit-backdrop-filter: 0px;
   -moz-backdrop-filter: 0px;
   -ms-backdrop-filter: 0px;
-  backdrop-filter: blur(1vh);
-  width: 100%;
+  backdrop-filter: blur(3vh);
 }
+
 
 #mcelec-statement{
   margin: 2vh;
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   font-style: italic;
   font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
   font-family: 'Sawarabi Mincho';
   text-shadow: black -0.03em 0.03em 0.1em;
 }
 
-#message-now {
+#get-contacted-link, #request-send{
   background: transparent;
   color: var(--white-color);
   letter-spacing: clamp(calc(var(--nav-letter-space) * var(--scale-min)), calc(var(--nav-letter-space) * var(--scale)), calc(var(--nav-letter-space) * var(--scale-max)));
@@ -349,13 +346,57 @@ h4{
   border: 0.2em solid var(--highlight-color);
   border-radius: 0px;
   text-shadow: black -0.03em 0.03em 0.1em;
+  margin-bottom: 3vh;
 }
 
-#message-now:hover, #message-now:active, #message-now:focus {
+#get-contacted-link:hover, 
+#get-contacted-link:active, 
+#get-contacted-link:focus,
+#request-send:hover, 
+#request-send:active, 
+#request-send:focus {
   outline: none;
   background: var(--highlight-color);
-  color: #fff;
+  color: var(--white-color);
   box-shadow: none;
+}
+
+#service-list{
+  /* margin-top: 10vh; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--dark-grey-color);
+  padding: 5vh;
+  gap: 3vh;
+}
+
+#service-list ul{
+  /* background-color: blue; */
+  /* margin-left: 3vh; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  border-left: 0.1vh solid var(--light-grey-color);
+  padding-left: 1vh;
+
+}
+/* 
+#service-list ul:not(:first-child){
+  margin-left: 3vh;
+} */
+
+
+#service-list ul li{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
+  color: var(--white-color);
+  display: flex;
+  text-decoration: none;
+  /* text-shadow: black -0.03em 0.03em 0.1em; */
+
 }
 
 /*Articles*/
@@ -366,6 +407,8 @@ h4{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max)));
+
 }
 
 #mcelec-articles article{
@@ -382,7 +425,7 @@ h4{
   display: block;
   position: relative;
   --mh: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
-  top: calc(-0.5 * var(--mh));
+  top: calc(-0.75 * var(--mh));
   visibility: hidden;
 }
 
@@ -393,6 +436,7 @@ h4{
   background-repeat: no-repeat;
   position: relative;
   height: 30vh;
+  margin-bottom: 3vh;;
 }
 
 .article-content {
@@ -405,83 +449,51 @@ h4{
 
 .article-content p{
   font-size: clamp(calc(var(--h4-height) * var(--scale-min)), calc(var(--h4-height) * var(--scale)), calc(var(--h4-height) * var(--scale-max)));
+  margin-top: 2vh;
 }
 
 
 /*Footer*/
-
-#mcelec-footer .mcelec-footer-links {
-  padding: 0;
-  margin: 0;
+#mcelec-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-#mcelec-footer .mcelec-footer-links li a {
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
+#request-form{
+  margin: 5vh;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
-#mcelec-footer .mcelec-footer-links li a:hover {
-  text-decoration: underline;
-  color: var(--highlight-color);
+select[data-value="Phone-call"]+label+input+label+input{
+  display: hidden;
+  height: 0;
+  border: none;
 }
 
+select[data-value]:not([data-value="Phone-call"])+label+input{
+  display: hidden;
+  height: 0;
+  border: none;
+}
 
+#request-form input[type="submit"]{
+  margin-block: 3vh;
+}
+
+.request-label{
+  margin-top: 2vh;
+}
+
+#copyright{
+  margin: 10vh;
+}
 
 /*Media Queries*/
 
-@media (orientation: portrait) and (min-resolution: 190dpi), (max-width: 786px){
-  html{
-    --h1-height: 1;
-    --logo-height: 1.75;
-  }
-
-  #nav-contact{
-    --mt: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
-    --mr: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-    margin-top: calc(var(--mt) * 2.2);
-    margin-right: calc(var(--mr) * 3);
-  }
-
-  #mcelec-nav.scrolled #nav-contact{
-    --mt: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
-    --mr: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-    margin-top: calc(var(--mt) * 1);
-    margin-right: calc(var(--mr) * 3);
-  }
-
-  #nav-phone-number{
-    visibility: hidden;
-    width: 0;
-  }
-}
-
-@media (orientation: landscape) and (min-resolution: 190dpi){
-  html{
-    --h1-height: 3;
-    --logo-height: 3;
-    --nav-letter-space: 0.1;
-    --margin-header-top: 12;
-  }
-
-  #mcelec-nav ul {
-    gap: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
-  }
-}
-
-@media (orientation: portrait) and (max-width: 500px){
-  html{
-    --h1-height: 0.75;
-    --logo-height: 1.25;
-    --margin-header-top: 5;
-
-  }
-}
-
-@media (orientation: landscape) and (max-height: 768px){
-  html{
-    --h1-height: 1;
-    --logo-height: 1.5;
-    --margin-header-top: 6;
-
-  }
-}

@@ -23,7 +23,9 @@
 		<link href="https://fonts.googleapis.com/css?family=Raleway|Sawarabi+Mincho" rel="stylesheet">
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/index.js" defer></script>
+		
 	</head>
+
 	<body>
 		<main id="mcelec-page">
 			<nav id="mcelec-nav" role="navigation">
@@ -50,14 +52,42 @@
 					<div id="statement-pane">
 						<div id="mcelec-statement">Proudly serving NW Arkansas with quality electrical services for 80 years.</div>
 					</div>
-					<div id="send-message">
-						<form id="message-form">
-							<input id="message-now" type="button" name="message-now" value="Message Now"></input>
-						</form>
-					</div>
+					<a href="#request-form">
+						<input class="get-con" id="get-contacted-link" type="button" name="get-contacted-link" value="Reach Out Now"></input>
+					</a>
+					
+				</div>
+				<div id="service-list">
+					<ul>
+						<li>Commercial</li>
+						<li>Residential</li>
+						<li>Indoor</li>
+						<li>Outdoor</li>
+						<li>Lighting</li>
+						
+					</ul>
+					<ul>
+						<li>Wiring</li>
+						<li>Controls</li>
+						<li>Repair</li>
+						<li>Maintenance</li>
+						<li>Design</li>
+						
+						
+					</ul>
+					<ul>
+						<li>Installs</li>
+						<li>Service</li>
+						<li>Remodels</li>
+						<li>Construction</li>
+					</ul>
 				</div>
 			</header>
+
+			<hr></hr>
+
 			<section id="mcelec-articles">
+				
 				<article>
 					<a class="anchor" id="installs-article"></a>
 					<div class="article-img" style="background-image: url(images/webp/studio-reflective-ambient-spot-point-stage-lighting.webp);"></div>
@@ -83,25 +113,35 @@
 					</div> 
 				</article>
 			</section>
+
+			<hr></hr>
 			
-			<footer id="mcelec-footer" role="contentinfo" class="mcelec-section">
-				<div class="">
-					<div class="text-center">
-						<div class="mcelec-widget">
-							<ul class="mcelec-footer-links">
-								<li><a href="tel://14793014594">(479) 301-4594</a></li>
-								<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="copyright">
-						<div class="text-center">
-							<p>
-								<small class="">&copy; 2023 McCarthy Electric. All Rights Reserved.</small> 
-							</p>
-						</div>
-					</div>
-				</div>
+			<footer id="mcelec-footer" role="form">
+				<form id="request-form" action="/apis/request-contact" method="post">
+					<label class="request-label" for="request-name">Just tell us your name</label>
+					<input id="request-name" type="text" name="user_name" placeholder="Name..."/>
+					<label class="request-label" for="request-method">How to reach you</label>
+					<select id="request-method" name="request-method" onchange=" this.dataset.value = this.value; " data-value="Phone-call">
+						<option value="Phone-call" selected>Phone-call</option>
+						<option value="Email">Email</option>
+						<option value="Text">Text</option>
+					</select>
+					<label class="request-label" for="request-number"></label>
+					<input id="request-number" type="tel" name="user_number" inputmode="numeric" placeholder="555-555-5555" />
+					<label class="request-label" for="request-email"></label>
+					<input id="request-email" type="email" name="user_email" placeholder="Email..."/>
+					<label class="request-label" for="request-type">And how we can help</label>
+					<select id="request-type" name="request-type">
+						<option value="Install">Install</option>
+						<option value="Design">Design</option>
+						<option value="Service">Service</option>
+						<option value="Other">Other</option>
+					</select>
+					<input id="request-send" type="submit" name="request-send" value="Get Contacted"/>
+				</form>
+				
+				<hr></hr>			
+				<small id="copyright">&copy; 2023 McCarthy Electric Inc of Fayetteville, AR. All Rights Reserved.</small> 
 			</footer>
 		</main>
 	</body>
