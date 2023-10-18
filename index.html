@@ -37,7 +37,9 @@
 					<li class="active"><a href="#">About</a></li>
 					<li><a href="#installs-article">Installs</a></li>
 					<li><a href="#design-article">Design</a></li>
-					<li><a href="#service-article">Servicing</a></li>
+					<li><a href="#service-article">Service</a></li>
+					<li><a href="#mcelec-footer">Contact</a></li>
+
 				</ul>
 				<a href="tel://14793014594" id="nav-contact" >
 					<div href="tel://14793014594" id="nav-phone-icon">
@@ -53,7 +55,7 @@
 						<div id="mcelec-statement">Proudly serving NW Arkansas with quality electrical services for 80 years.</div>
 					</div>
 					<a href="#request-form">
-						<input class="get-con" id="get-contacted-link" type="button" name="get-contacted-link" value="Reach Out Now"></input>
+						<input class="get-con" id="get-contacted-link" type="button" name="get-contacted-link" value="Connect With Us"></input>
 					</a>
 					
 				</div>
@@ -92,7 +94,7 @@
 					<a class="anchor" id="installs-article"></a>
 					<div class="article-img" style="background-image: url(images/webp/studio-reflective-ambient-spot-point-stage-lighting.webp);"></div>
 					<div class="article-content">
-						<h2>Installs</h2>
+						<h2>INSTALLS</h2>
 						<p>Whether indoors or outdoors, we can install your custom and standard lighting, control panels, utilities, and more.</p>
 					</div> 
 				</article>
@@ -113,31 +115,33 @@
 					</div> 
 				</article>
 			</section>
+			<hr>
 
-			<hr></hr>
-			
 			<footer id="mcelec-footer" role="form">
+				<h3></h3>
 				<form id="request-form" action="/apis/request-contact" method="post">
-					<label class="request-label" for="request-name">Just tell us your name</label>
+					<label class="request-label" for="request-name">Your name</label>
 					<input id="request-name" type="text" name="user_name" placeholder="Name..."/>
 					<label class="request-label" for="request-method">How to reach you</label>
-					<select id="request-method" name="request-method" onchange=" this.dataset.value = this.value; " data-value="Phone-call">
-						<option value="Phone-call" selected>Phone-call</option>
-						<option value="Email">Email</option>
-						<option value="Text">Text</option>
-					</select>
-					<label class="request-label" for="request-number"></label>
-					<input id="request-number" type="tel" name="user_number" inputmode="numeric" placeholder="555-555-5555" />
-					<label class="request-label" for="request-email"></label>
-					<input id="request-email" type="email" name="user_email" placeholder="Email..."/>
-					<label class="request-label" for="request-type">And how we can help</label>
-					<select id="request-type" name="request-type">
-						<option value="Install">Install</option>
-						<option value="Design">Design</option>
-						<option value="Service">Service</option>
-						<option value="Other">Other</option>
-					</select>
-					<input id="request-send" type="submit" name="request-send" value="Get Contacted"/>
+					<div id="request-method" class="radio-group">
+						<input id="by-email" type="radio" name="method-choice" onchange="requestMethodChanged();" checked="checked">EMAIL</input>
+						<input id="by-text" type="radio" name="method-choice" onchange="requestMethodChanged();">TEXT</input>
+						<input id="by-phone" type="radio" name="method-choice" onchange="requestMethodChanged();">PHONE</input>
+					</div >
+					<div id="method-input">
+						<label class="request-label" for="request-number"></label>
+						<input id="request-number" type="tel" name="user_number" inputmode="numeric" placeholder="555-555-5555" />
+						<label class="request-label" for="request-email"></label>
+						<input id="request-email" type="email" name="user_email" placeholder="Email..."/>
+					</div>
+					<label class="request-label" for="request-type">How we can help</label>
+					<div id="request-type" class="radio-group">
+						<input type="radio" name="type-choice" value="Other" checked="checked">OTHER</input>
+						<input type="radio" name="type-choice" value="Design">DESIGN</input>
+						<input type="radio" name="type-choice" value="Install">INSTALL</input>
+						<input type="radio" name="type-choice" value="Service">SERVICE</input>
+					</div >
+					<input id="request-send" type="submit" name="request-send" value="Connect With Us"/>
 				</form>
 				
 				<hr></hr>			

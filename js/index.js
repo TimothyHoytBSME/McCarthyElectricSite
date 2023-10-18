@@ -11,4 +11,26 @@ window.onscroll = function () {
     }
 };
   
+function requestMethodChanged(){
+    const phone = document.getElementById('request-number');
+    const email = document.getElementById('request-email');
 
+    const options = document.getElementsByName('method-choice');
+    let checked = undefined;
+    for(let i=0; i<options.length; i++){
+        if(options[i].checked){
+            checked = options[i]
+        }
+    }
+    switch(checked.id){
+        case 'by-email':
+            phone.style.display = "none";
+            email.style.display = "block";
+            break;
+        default:
+            email.style.display = "none";
+            phone.style.display = "block";
+            break;
+
+    }
+}
