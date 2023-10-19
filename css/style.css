@@ -104,7 +104,7 @@ a:hover, a:active, a:focus {
   text-decoration: none;
 }
 
-a:focus-visible{
+input:focus-visible, a:focus-visible{
   border: 0.1em solid var(--highlight-color);
 
 }
@@ -460,7 +460,7 @@ h4{
 }
 
 .article-content p{
-  font-size: clamp(calc(var(--43-height) * var(--scale-min)), calc(var(--43-height) * var(--scale)), calc(var(--43-height) * var(--scale-max)));
+  font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
   margin-top: 2vh;
   color: var(--light-gey-color);
 }
@@ -478,27 +478,57 @@ h4{
   flex-direction: column;
 }
 
+#let-us-contact{
+  font-size: clamp(calc(1.7 * var(--scale-min)), calc(1.7 * var(--scale)), calc(1.7 * var(--scale-max)));
+  margin-top: 2em;
+  font-weight: 700;
+}
+
 #request-form{
   margin: 5vh;
-  height: 50vh;
+  margin-top: 4vh;
   display: flex;
-  align-items: left;
+  align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   width: 20em;
-
 }
 
 
 #request-form input[type="Submit"]{ /*sumbit button*/
   margin-top: 1em;
   width: 90%;
-  align-self: center;
+  /* align-self: center; */
 }
 
+#request-method input:not(:first-child){
+  margin-left: 2em;
+}
+
+
+#request-type input:not(:first-child){
+  margin-left: 1em;
+}
+
+#request-method input,
+#request-type input{
+  accent-color: var(--highlight-color);
+  margin-right: 0.5em;
+}
+
+
 #request-name, #request-email, #request-number{
-  height: 1.5em;
+  height: 1.1em;
   width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  font-size: clamp(calc(1.5 * var(--scale-min)), calc(1.5 * var(--scale)), calc(1.5 * var(--scale-max)));
+
+}
+
+#request-name:focus, #request-email:focus, #request-number:focus{
+  outline: none;
+
 }
 
 #request-number{
@@ -513,13 +543,16 @@ h4{
   display: flex;
   font-size: 0.75em;
   justify-content: center;
+  /* margin-bottom: 1em; */
+  margin-top: 0.5em;
 }
 .request-label{
-  margin-top: 2vh;
+  font-weight: 600;
 }
 
 #copyright{
   margin: 10vh;
+  text-align: center;
 }
 
 /*Media Queries*/

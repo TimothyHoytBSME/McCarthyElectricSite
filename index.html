@@ -118,11 +118,11 @@
 			<hr>
 
 			<footer id="mcelec-footer" role="form">
-				<h3></h3>
+				<p id="let-us-contact">Request Service</p>
 				<form id="request-form" action="/apis/request-contact" method="post">
-					<label class="request-label" for="request-name">Your name</label>
+					<label class="request-label" for="request-name">What is your name?</label>
 					<input id="request-name" type="text" name="user_name" placeholder="Name..."/>
-					<label class="request-label" for="request-method">How to reach you</label>
+					<label class="request-label" for="request-method">How can we reach you?</label>
 					<div id="request-method" class="radio-group">
 						<input id="by-email" type="radio" name="method-choice" onchange="requestMethodChanged();" checked="checked">EMAIL</input>
 						<input id="by-text" type="radio" name="method-choice" onchange="requestMethodChanged();">TEXT</input>
@@ -134,7 +134,7 @@
 						<label class="request-label" for="request-email"></label>
 						<input id="request-email" type="email" name="user_email" placeholder="Email..."/>
 					</div>
-					<label class="request-label" for="request-type">How we can help</label>
+					<label class="request-label" for="request-type">How can we help?</label>
 					<div id="request-type" class="radio-group">
 						<input type="radio" name="type-choice" value="Other" checked="checked">OTHER</input>
 						<input type="radio" name="type-choice" value="Design">DESIGN</input>
