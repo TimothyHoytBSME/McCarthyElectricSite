@@ -479,11 +479,11 @@ h4{
   flex-direction: column;
 }
 
-#contact-anchor{
+#contact{
   display: block;
   position: relative;
   --mh: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
-  top: calc(-0.25 * var(--mh));
+  top: calc(-0.2 * var(--mh));
   visibility: hidden;
 }
 
