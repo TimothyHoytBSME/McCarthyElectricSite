@@ -555,5 +555,9 @@ h4{
   text-align: center;
 }
 
-/*Media Queries*/
+/*Mobile devices*/
+
+.is-mobile body{
+  background-color: pink;
+}
 
