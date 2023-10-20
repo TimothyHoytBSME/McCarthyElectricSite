@@ -52,7 +52,7 @@ form.onsubmit = function(event){
     console.log("atttempting to send",fdjson)
 
     //todo use actual api link
-    xhr.open('POST','https://jsonplaceholder.typicode.com/posts')
+    xhr.open('POST','https://bomb.zone/mccarthyelectricinc/request-contact/')          //'https://jsonplaceholder.typicode.com/posts')
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onerror = function () {
