@@ -169,7 +169,7 @@ h4{
   margin-top: 0;
 }
 
-#mcelec-nav.scrolled #mcelec-logo-side-svg{
+html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   /* margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max))); */
   margin-left: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
   height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
@@ -182,7 +182,10 @@ h4{
   height: 40%;
 }
 
-
+html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
+  height: 0;
+  margin-top: 0;
+}
 
 #mcelec-name {
   color: var(--white-color);
@@ -227,24 +230,28 @@ h4{
   background: var(--highlight-color);
 }
 
-#nav-contact{
+
+#nav-contact-phone{
+  position: absolute;
   margin-right: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
   --hh: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   --hhh: calc(var(--hh)*0.60);
   height: var(--hhh);
+  right: 0;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  position: absolute;
-  top: calc(calc(100% - var(--hhh)) / 2);
-  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-#nav-phone-icon{
+#nav-contact-text{
+  display: none;
+}
+
+
+#nav-phone-icon, #nav-text-svg{
   height: 100%;
   filter:  saturate(0%) brightness(300%);
 }
@@ -253,7 +260,9 @@ h4{
   height: 100%;
 } 
 
-#nav-contact:hover #nav-phone-icon, #nav-contact:active #nav-phone-icon, #nav-contact:focus #nav-phone-icon{
+
+#nav-contact-phone:hover #nav-phone-icon, #nav-contact-phone:focus #nav-phone-icon,
+#nav-contact-text:hover #nav-text-svg, #nav-contact-text:focus #nav-text-svg{
   filter: saturate(1000%) hue-rotate(60deg) brightness(250%);
 }
 
@@ -270,10 +279,7 @@ h4{
   color: var(--light-gey-color)
 }
 
-#mcelec-nav.scrolled #mcelec-logo-svg{
-  height: 0;
-  margin-top: 0;
-}
+
 
 
 
@@ -595,12 +601,42 @@ h4{
 
 
 
-
-
-
-/*Mobile devices*/
-
+/*Mobile devices////////////////////////////////////////////*/
 /* .is-mobile body{
   background-color: pink;
 } */
+
+.is-mobile #nav-contact-text{
+  display: block;
+  height: 4vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 2vh;
+}
+
+.is-mobile #nav-text-svg{
+  height: 100%;
+
+}
+
+.is-mobile #nav-contact-phone{
+  height: 4vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 2vh;
+
+}
+
+.is-mobile #nav-phone-number{
+  display: none;
+}
+
+/* .is-mobile #nav-phone-icon, .is-mobile #nav-text-svg{
+  filter: saturate(1000%) hue-rotate(60deg) brightness(250%);
+
+} */
+
+
 
