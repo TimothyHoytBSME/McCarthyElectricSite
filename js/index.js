@@ -1,5 +1,15 @@
 
 const navbar = document.getElementById("mcelec-nav");
+const reqForm = document.getElementById('request-form');
+const reqName = document.getElementById('request-name')
+const phone = document.getElementById('request-number');
+const phoneLabel = document.getElementById('label-for-request-number');
+const email = document.getElementById('request-email');
+const emailLabel = document.getElementById('label-for-request-email');
+const options = document.getElementsByName('method-choice');
+let reqMethodElem = document.getElementById("by-phone")
+reqMethodElem.checked = "checked"
+
 window.onscroll = function () { 
     if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50 ) {
         navbar.classList.add("scrolled");
@@ -10,72 +20,99 @@ window.onscroll = function () {
 };
   
 function requestMethodChanged(){
-    const phone = document.getElementById('request-number');
-    const phoneLabel = document.getElementById('label-for-request-number');
-    const email = document.getElementById('request-email');
-    const emailLabel = document.getElementById('label-for-request-email');
-
-    const options = document.getElementsByName('method-choice');
     let checked = undefined;
     for(let i=0; i<options.length; i++){
-        if(options[i].checked){
-            checked = options[i]
-        }
+        if(options[i].checked){  checked = options[i]  }
     }
-    switch(checked.id){
+    reqMethodElem = checked
+    switch(reqMethodElem.id){
         case 'by-email':
-            phone.style.display = "none";
-            phoneLabel.style.display = "none";
-
-            email.style.display = "block";
-            emailLabel.style.display = "block";
-            
+            phone.style.display = "none";   phoneLabel.style.display = "none";
+            email.style.display = "block";  emailLabel.style.display = "block";
             break;
         default:
-            phone.style.display = "block";
-            phoneLabel.style.display = "block";
-            email.style.display = "none";
-            emailLabel.style.display = "none";
-
+            phone.style.display = "block";  phoneLabel.style.display = "block";
+            email.style.display = "none";   emailLabel.style.display = "none";
             break;
-
     }
 }
 
-
-var form = document.getElementById('request-form');
-form.onsubmit = function(event){
+reqForm.onsubmit = function(event){
     event.preventDefault();
-    var xhr = new XMLHttpRequest();
-    var fd = new FormData(form);
-    let fdjson = JSON.stringify(Object.fromEntries(fd))
-    console.log("atttempting to send",fdjson)
 
-    //todo use actual api link
-    xhr.open('POST','https://mccarthyelectricinc.com.bomb.zone/request-contact/')          //'https://jsonplaceholder.typicode.com/posts')
-    xhr.setRequestHeader("Content-Type", "application/json");
 
-    xhr.onerror = function () {
-        alert('An unknown error occurred when attempting to send your request. We apologize for the inconvenience.')
-    };
+    //todo validate inputs
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log("response status", xhr.status)
+    //validate name
+    if(reqName.value.length == 0){
+        //todo show user
+        alert('Please enter your name.')
+        return false;
+    }
 
-            if(xhr.status == 201 || xhr.status == 200 ){
-                console.log("SUCCESS")
-            }else{
-                console.log("FAIL")
-            }
-            console.log(xhr.response)
-
-            form.reset();
-
+    if(reqMethodElem.id == "by-phone" || reqMethodElem.id == "by-text"){
+        //validate number
+        const validNumber = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone.value) ||
+                    (/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/im.test(phone.value)) ||
+                    /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/im.test(phone.value) ||
+                    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/im.test(phone.value)
+        if(!validNumber){
+            //todo tell user
+            alert('Invalid phone number. ')
+            return false;
+        }
+    }else{
+        //validate email
+        if(!validateEmail(email.value)){
+            alert('Invalid email. ')
+            return false;
         }
     }
 
-    xhr.send(fdjson);
 
+
+    const fd = new FormData(reqForm);
+    const fdJson = JSON.stringify(Object.fromEntries(fd))
+    const url = "https://mccarthyelectricinc.com.bomb.zone/request-contact/"
+    const reqObj = postJson(url,fdJson,doOnDone)
+
+    function doOnDone(){
+        if(reqObj.status == 201 || reqObj.status == 200 ){
+            console.log("POST SUCCESSFUL", reqObj.status)
+            alert('Your request has been sent! We will get back to you as soon as able.')
+            reqForm.reset();
+        }else if(reqObj.error){
+            console.error("POST NOT SENT ERROR", reqObj.status)
+            alert('Your request was not sent due to a technical error. We apologize for the inconvenience.')
+
+        }else{
+            console.warn("POST FAILED", reqObj.status)
+            alert('Your request was not received due to a server error invalid input. We apologize for the inconvenience. Please verify your name and contact method just in case.')
+        }
+    }
     return false; 
 }
+
+
+function postJson(url, json, doOnDone){
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST',url)  
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onerror = function () {
+        alert('Your request was not received due to a technical error. We apologize for the inconvenience. Please verify your name and contact method just in case.')
+
+        xhr.error = true;
+    };
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) { doOnDone(); xhr.error = false; }
+    }
+    xhr.send(json);
+    return xhr
+}
+
+
+const validateEmail = (email) => {
+    return String(email).toLowerCase().match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};

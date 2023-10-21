@@ -126,23 +126,23 @@
 					<label class="request-label" for="request-name">What is your name?</label>
 					<input id="request-name" type="text" name="user_name" placeholder="Name..."/>
 					<div class="request-label" >How can we reach you?</div>
-					<div id="request-method" class="radio-group">
-						<input id="by-email" type="radio" name="method-choice" value="email" onchange="requestMethodChanged();" checked="checked"></input>
+					<div id="request-method" class="radio-group" role="group">
+						<input id="by-email" type="radio" name="method-choice" value="email" onchange="requestMethodChanged();"/>
 						<label class="request-label" for="by-email">EMAIL</label>
-						<input id="by-text" type="radio" name="method-choice" value="text" onchange="requestMethodChanged();"></input>
+						<input id="by-text" type="radio" name="method-choice" value="text" onchange="requestMethodChanged();"/>
 						<label class="request-label" for="by-text">TEXT</label>
-						<input id="by-phone" type="radio" name="method-choice" value="phone" onchange="requestMethodChanged();"></input>
+						<input id="by-phone" type="radio" name="method-choice" value="phone" onchange="requestMethodChanged();"/>
 						<label class="request-label" for="by-phone">PHONE</label>
 					</div >
-					<div id="method-input">
+					<div id="method-input" role="group">
 						<label id="label-for-request-number" class="request-label" for="request-number">What is your phone number?</label>
 						<input id="request-number" type="tel" name="user_number" inputmode="numeric" placeholder="Phone Number..." />
 						<label id="label-for-request-email" class="request-label" for="request-email">What is your email?</label>
 						<input id="request-email" type="email" name="user_email" placeholder="Email..."/>
 					</div>
 					<div class="request-label">How can we help?</div>
-					<div id="request-type" class="radio-group">
-						<input id="for-other" type="radio" name="type-choice" value="other" checked="checked"></input>
+					<div id="request-type" class="radio-group" role="group">
+						<input id="for-other" type="radio" name="type-choice" value="other" checked = "checked"></input>
 						<label class="request-label" for="for-other">OTHER</label>
 						<input id="for-planning" type="radio" name="type-choice" value="planning"></input>
 						<label class="request-label" for="for-planning">PLANNING</label>
