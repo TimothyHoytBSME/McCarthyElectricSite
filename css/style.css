@@ -15,7 +15,7 @@ html {
   --scale: 1rem; /*DO NOT CHANGE!!!!*/
   --scale-min: 1.25vh; /*positive vh only*/
   --scale-max: 3.2vh; /*positive vh only*/
-  --margin-header-top: 12; /*positive number only*/
+  --margin-header-top: 8; /*positive number only*/
 
   /* size Variables */
   --logo-height: 2; /*positive number only*/
@@ -607,6 +607,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #copyright{
   margin: 10vh;
   text-align: center;
+  font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
 
 }
 
