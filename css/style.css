@@ -15,15 +15,7 @@ html {
   --scale: 1rem; /*DO NOT CHANGE!!!!*/
   --scale-min: 1.25vh; /*positive vh only*/
   --scale-max: 3.2vh; /*positive vh only*/
-
-  /* Margin Variables */
-  --margin-base: 0.5; /*positive number only*/
-  --margin-double: calc(var(--margin-base) * 2); 
-  --margin-three-quarter: calc(var(--margin-base) * 0.75); 
-  --margin-half: calc(var(--margin-base) * 0.5); 
-  --margin-quarter: calc(var(--margin-base) * 0.25); 
-  --margin-large: calc(var(--margin-base) * 5);
-  --margin-header-top: 8; /*positive number only*/
+  --margin-header-top: 12; /*positive number only*/
 
   /* size Variables */
   --logo-height: 2; /*positive number only*/
@@ -157,8 +149,11 @@ h4{
 
 #mcelec-logo-svg{
   height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
-  margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-  margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max)));
+  /* margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
+  /* margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max))); */
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -171,7 +166,8 @@ h4{
 
 html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   /* margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max))); */
-  margin-left: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  /* margin-left: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
+  margin-left: 2vh;
   height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
@@ -189,7 +185,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 #mcelec-name {
   color: var(--white-color);
-  margin-bottom: clamp(calc(var(--margin-three-quarter) * var(--scale-min)), calc(var(--margin-three-quarter) * var(--scale)), calc(var(--margin-three-quarter) * var(--scale-max)));
+  /* margin-bottom: clamp(calc(var(--margin-three-quarter) * var(--scale-min)), calc(var(--margin-three-quarter) * var(--scale)), calc(var(--margin-three-quarter) * var(--scale-max))); */
+  margin-bottom: 0.75vh;
   font-weight: 600;
   font-family: Helvetica, sans-serif;
 }
@@ -199,9 +196,13 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #mcelec-nav ul {
   display: flex;
   justify-content: space-between;
-  gap: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
-  margin-top: clamp(calc(var(--margin-half) * var(--scale-min)), calc(var(--margin-half) * var(--scale)), calc(var(--margin-half) * var(--scale-max)));
-  margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  gap: 1vh;
+  /* clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
+  /* margin-top: clamp(calc(var(--margin-half) * var(--scale-min)), calc(var(--margin-half) * var(--scale)), calc(var(--margin-half) * var(--scale-max))); */
+  /* margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+
 }
 
 #mcelec-nav ul li{
@@ -233,7 +234,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 #nav-contact-phone{
   position: absolute;
-  margin-right: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max)));
+  /* margin-right: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
+  margin-right: 2vh;
   --hh: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   --hhh: calc(var(--hh)*0.60);
   height: var(--hhh);
@@ -274,8 +276,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2%;
-  margin-left: 3%;
   color: var(--light-gey-color)
 }
 
@@ -287,18 +287,22 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 /*Header////////////////////////////////////////*/
 
 #mcelec-header {
+  background-color: var(--black-color);
   position: relative;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
   margin-top: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
-  margin-bottom: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max)));
-  height: 70vh;
+  /* margin-bottom: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
+  margin-bottom: 4vh;
+  
+  /* height: 70vh; */
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 #mcelec-header .overlay {
@@ -313,6 +317,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 #header-content{
   width: 50%;
+  min-width: 20em;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -327,6 +332,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   -moz-backdrop-filter: 0px;
   -ms-backdrop-filter: 0px;
   backdrop-filter: blur(3vh);
+  margin-block: 4vh;
 }
 
 
@@ -381,6 +387,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   background-color: var(--dark-grey-color);
   padding: 5vh;
   gap: 3vh;
+  margin-bottom: 4vh;
 }
 
 #service-list ul{
@@ -419,7 +426,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max)));
+  /* margin-top: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
 
 }
 
@@ -430,10 +437,12 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   align-items: center;
   justify-content: center;
   max-width: 160vh;
-  margin-bottom: 10vh;
+  /* margin-bottom: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
+  /* margin-top: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
+  margin-block: 4vh;
 }
 
-#mcelec-articles article a{ /*internal article link anchors*/
+.anchor{ /*internal article link anchors*/
   display: block;
   position: relative;
   --mh: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
@@ -441,6 +450,10 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   visibility: hidden;
 }
 
+#contact{ /*scroll anchor*/
+  --mh: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
+  top: calc(-0.2 * var(--mh));
+}
 
 .article-img {
   width: 100%;
@@ -462,7 +475,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 .article-content h2{
   font-weight: 700;
-  margin-left: -1em;
+  margin-left: -1vh;
   color: var(--white-color)
 }
 
@@ -485,24 +498,18 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   flex-direction: column;
 }
 
-#contact{
-  display: block;
-  position: relative;
-  --mh: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
-  top: calc(-0.2 * var(--mh));
-  visibility: hidden;
-}
+
 
 #request-service{
   font-size: clamp(calc(1.8 * var(--scale-min)), calc(1.8 * var(--scale)), calc(1.8 * var(--scale-max)));
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
   font-weight: 700;
 }
 
 #call-or-text{
   font-size: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
-  margin-bottom: 2em;
+  margin-bottom: 2vh;
 
 }
 
@@ -525,18 +532,18 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 #request-method input:not(:first-child){
-  margin-left: 2em;
+  margin-left: 2vh;
 }
 
 
 #request-type input:not(:first-child){
-  margin-left: 1em;
+  margin-left: 1vh;
 }
 
 #request-method >input,
 #request-type > input{
   accent-color: var(--highlight-color);
-  margin-right: 0.5em;
+  margin-right: 0.5vh;
   font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
   
 }
@@ -545,8 +552,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #request-name, #request-email, #request-number{
   height: 1.1em;
   width: 100%;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+  margin-top: 0.5vh;
+  margin-bottom: 1vh;
   font-size: clamp(calc(1.2 * var(--scale-min)), calc(1.2 * var(--scale)), calc(1.2 * var(--scale-max)));
   text-align: center;
 }
@@ -570,8 +577,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 .radio-group{
   display: flex;
   justify-content: center;
-  margin-top: 0.5em;
-  margin-bottom: 3em;
+  margin-top: 0.5vh;
+  margin-bottom: 3vh;
   width: 100%;
 }
 
@@ -593,6 +600,10 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   display: none;
 }
 
+#call-or-text{
+  text-align: center;
+}
+
 #copyright{
   margin: 10vh;
   text-align: center;
@@ -602,9 +613,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 
 /*Mobile devices////////////////////////////////////////////*/
-/* .is-mobile body{
-  background-color: pink;
-} */
 
 .is-mobile #nav-contact-text{
   display: block;
@@ -617,7 +625,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 .is-mobile #nav-text-svg{
   height: 100%;
-
 }
 
 .is-mobile #nav-contact-phone{
@@ -626,17 +633,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   right: 0;
   top: 0;
   margin: 2vh;
-
 }
 
 .is-mobile #nav-phone-number{
   display: none;
 }
-
-/* .is-mobile #nav-phone-icon, .is-mobile #nav-text-svg{
-  filter: saturate(1000%) hue-rotate(60deg) brightness(250%);
-
-} */
-
-
-
