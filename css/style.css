@@ -466,7 +466,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 .article-content {
-  width: 70%;
+  width: 60%;
   background: var(--black-color);
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
@@ -475,14 +475,15 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 .article-content h2{
   font-weight: 700;
-  margin-left: -1vh;
-  color: var(--white-color)
+  color: var(--white-color);
+  text-align: center;
 }
 
 .article-content p{
   font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
   margin-top: 2vh;
   color: var(--light-gey-color);
+  text-align: justify;
 }
 
 
@@ -502,7 +503,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 #request-service{
   font-size: clamp(calc(1.8 * var(--scale-min)), calc(1.8 * var(--scale)), calc(1.8 * var(--scale-max)));
-  margin-top: 2vh;
+  margin-top: 8vh;
   margin-bottom: 1vh;
   font-weight: 700;
 }
@@ -553,7 +554,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   height: 1.1em;
   width: 100%;
   margin-top: 0.5vh;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
   font-size: clamp(calc(1.2 * var(--scale-min)), calc(1.2 * var(--scale)), calc(1.2 * var(--scale-max)));
   text-align: center;
 }
@@ -602,6 +603,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 #call-or-text{
   text-align: center;
+  margin-bottom: 8vh;
 }
 
 #copyright{
@@ -624,11 +626,11 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   margin: 2vh;
 }
 
-.is-mobile #nav-text-svg{
+.is-mobile #nav-text-svg, .is-narrow #nav-text-svg{
   height: 100%;
 }
 
-.is-mobile #nav-contact-phone{
+.is-mobile #nav-contact-phone, .is-narrow #nav-contact-phone{
   height: 4vh;
   position: absolute;
   right: 0;

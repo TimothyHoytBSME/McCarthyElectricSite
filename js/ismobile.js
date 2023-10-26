@@ -18,8 +18,10 @@ window.widthCheck = function(){
 function runChecks(){
     window.mobileCheck();  window.widthCheck()
     const root = document.getElementsByTagName( 'html' )[0]; // '0' to assign the first (and only `HTML` tag)
-    if(window.isMobile || window.isNarrow){root.classList.add ( 'is-mobile' )
+    if(window.isMobile){root.classList.add ( 'is-mobile' )
     }else{ root.classList.remove ( 'is-mobile' ); }
+    if(window.isNarrow){root.classList.add ( 'is-narrow' )
+    }else{ root.classList.remove ( 'is-narrow' ); } 
 }
 
 onresize = (event) => { runChecks()}
