@@ -15,21 +15,16 @@ html {
   --scale: 1rem; /*DO NOT CHANGE!!!!*/
   --scale-min: 1.25vh; /*positive vh only*/
   --scale-max: 3.2vh; /*positive vh only*/
-  --margin-header-top: 8; /*positive number only*/
+  --margin-header-top: 7; /*positive number only*/
 
   /* size Variables */
-  --logo-height: 2; /*positive number only*/
-  --h1-height: 1.3; /*positive number only*/
-  --h2-height: 1.2; /*positive number only*/
-  --h3-height: 1.0; /*positive number only*/
-  --h4-height: 0.75; /*positive number only*/
-  --nav-letter-space: 0.05; /*positive number only*/
-  --nav-shift: -6; /*negative number only*/
-  --hr-width: 15; /*positive number only*/
-  --hr-height: 0.05; /*positive number only*/
+  --logo-height: 1.5; /*positive number only*/
+  --h1-height: 1; /*positive number only*/
+  --h2-height: 1; /*positive number only*/
+  --h3-height: 0.9; /*positive number only*/
+  --nav-letter-space: 0.08; /*positive number only*/
   --btn-height: 2;
 
-  scroll-behavior: smooth;
 }
 
 
@@ -59,26 +54,33 @@ body {
   color: var(--white-color);
   background: var(--black-color);
   width: 100%;
+  height: 100vh;
 }
 
 main {
-  position: relative;
+  overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
+  height: 100vh;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  scroll-behavior: smooth;
+
 }
 
 hr{
-  width: clamp(calc(var(--hr-width) * var(--scale-min)), calc(var(--hr-width) * var(--scale)), calc(var(--hr-width) * var(--scale-max)));
-  height: clamp(calc(var(--hr-height) * var(--scale-min)), calc(var(--hr-height) * var(--scale)), calc(var(--hr-height) * var(--scale-max)));
-  background: var(--light-grey-color);
+  display: block;
+  width: 38vh;
+  height: 0.2vh;
+  background-color: var(--light-grey-color);
+  border: 0;
   border: none;
+  clear: both;
+  z-index: 100;
 }
 
 a {
@@ -122,17 +124,12 @@ h3{
   height: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
 }
 
-h4{
-  font-size: clamp(calc(var(--h4-height) * var(--scale-min)), calc(var(--h4-height) * var(--scale)), calc(var(--h4-height) * var(--scale-max)));
-  height: clamp(calc(var(--h4-height) * var(--scale-min)), calc(var(--h4-height) * var(--scale)), calc(var(--h4-height) * var(--scale-max)));
-}
-
 
 
 /*Nav/////////////////////////////////////*/
 
 #mcelec-nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -149,8 +146,6 @@ h4{
 
 #mcelec-logo-svg{
   height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
-  /* margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
-  /* margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max))); */
   margin-bottom: 2vh;
   margin-top: 2vh;
   
@@ -165,17 +160,14 @@ h4{
 }
 
 html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
-  /* margin-top: clamp(calc(var(--margin-double) * var(--scale-min)), calc(var(--margin-double) * var(--scale)), calc(var(--margin-double) * var(--scale-max))); */
-  /* margin-left: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
   margin-left: 2vh;
-  height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 0;
-  height: 40%;
+  height: 30%;
 }
 
 html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
@@ -185,7 +177,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 #mcelec-name {
   color: var(--white-color);
-  /* margin-bottom: clamp(calc(var(--margin-three-quarter) * var(--scale-min)), calc(var(--margin-three-quarter) * var(--scale)), calc(var(--margin-three-quarter) * var(--scale-max))); */
   margin-bottom: 0.75vh;
   font-weight: 600;
   font-family: Helvetica, sans-serif;
@@ -196,13 +187,9 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #mcelec-nav ul {
   display: flex;
   justify-content: space-between;
-  gap: 1vh;
-  /* clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
-  /* margin-top: clamp(calc(var(--margin-half) * var(--scale-min)), calc(var(--margin-half) * var(--scale)), calc(var(--margin-half) * var(--scale-max))); */
-  /* margin-bottom: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
+  gap: 1.5vh;
   margin-top: 1vh;
   margin-bottom: 2vh;
-
 }
 
 #mcelec-nav ul li{
@@ -234,7 +221,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 #nav-contact-phone{
   position: absolute;
-  /* margin-right: clamp(calc(var(--margin-base) * var(--scale-min)), calc(var(--margin-base) * var(--scale)), calc(var(--margin-base) * var(--scale-max))); */
   margin-right: 2vh;
   --hh: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   --hhh: calc(var(--hh)*0.60);
@@ -289,15 +275,11 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #mcelec-header {
   background-color: var(--black-color);
   position: relative;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  margin-top: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
-  /* margin-bottom: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
-  margin-bottom: 4vh;
-  
-  /* height: 70vh; */
+  margin-bottom: 6vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -332,7 +314,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   -moz-backdrop-filter: 0px;
   -ms-backdrop-filter: 0px;
   backdrop-filter: blur(3vh);
-  margin-block: 4vh;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
 }
 
 
@@ -380,19 +363,16 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 #service-list{
-  /* margin-top: 10vh; */
   display: flex;
   align-items: center;
   justify-content: space-around;
   background-color: var(--dark-grey-color);
   padding: 5vh;
   gap: 3vh;
-  margin-bottom: 4vh;
+  margin-bottom: 6vh;
 }
 
 #service-list ul{
-  /* background-color: blue; */
-  /* margin-left: 3vh; */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -402,10 +382,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   padding-left: 1vh;
 
 }
-/* 
-#service-list ul:not(:first-child){
-  margin-left: 3vh;
-} */
+
 
 
 #service-list ul li{
@@ -414,11 +391,13 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   color: var(--white-color);
   display: flex;
   text-decoration: none;
-  /* text-shadow: black -0.03em 0.03em 0.1em; */
 
 }
 
-/*Articles*/
+
+
+
+/*Articles///////////////////////////////////////*/
 
 #mcelec-articles{
   width: 100%;
@@ -426,8 +405,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* margin-top: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
-
 }
 
 #mcelec-articles article{
@@ -437,23 +414,16 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   align-items: center;
   justify-content: center;
   max-width: 160vh;
-  /* margin-bottom: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
-  /* margin-top: clamp(calc(var(--margin-large) * var(--scale-min)), calc(var(--margin-large) * var(--scale)), calc(var(--margin-large) * var(--scale-max))); */
   margin-block: 4vh;
 }
 
 .anchor{ /*internal article link anchors*/
   display: block;
   position: relative;
-  --mh: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
-  top: calc(-0.75 * var(--mh));
+  top: -15vh;
   visibility: hidden;
 }
 
-#contact{ /*scroll anchor*/
-  --mh: clamp(calc(var(--margin-header-top) * var(--scale-min)), calc(var(--margin-header-top) * var(--scale)), calc(var(--margin-header-top) * var(--scale-max)));
-  top: calc(-0.2 * var(--mh));
-}
 
 .article-img {
   width: 100%;
@@ -502,7 +472,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 
 #request-service{
-  font-size: clamp(calc(1.8 * var(--scale-min)), calc(1.8 * var(--scale)), calc(1.8 * var(--scale-max)));
+  font-size: clamp(calc(1.5 * var(--scale-min)), calc(1.5 * var(--scale)), calc(1.5 * var(--scale-max)));
   margin-top: 8vh;
   margin-bottom: 1vh;
   font-weight: 700;
@@ -545,7 +515,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #request-type > input{
   accent-color: var(--highlight-color);
   margin-right: 0.5vh;
-  font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
+  /* font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max))); */
   
 }
 
@@ -584,7 +554,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 .radio-group input{
-  --hh: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
+  --hh: clamp(calc(var(--h2-height) * var(--scale-min)), calc(var(--h2-height) * var(--scale)), calc(var(--h2-height) * var(--scale-max)));
   width: var(--hh);
   height: var(--hh);
   font-size: var(--hh);
@@ -617,27 +587,82 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 /*Mobile devices////////////////////////////////////////////*/
 
+
+.is-mobile #mcelec-logo-svg{
+  height: 3vh;
+}
+
+.is-mobile #mcelec-name{
+  font-size: 2.5vh;
+  margin-bottom: 2vh;
+}
+
+.is-mobile #mcelec-nav ul{
+  margin-bottom: 1vh;;
+}
+
+.is-mobile #mcelec-nav a{
+  font-size: 2vh;
+}
+
 .is-mobile #nav-contact-text{
   display: block;
   height: 4vh;
   position: absolute;
   left: 0;
   top: 0;
-  margin: 2vh;
+  margin: 3vh;
 }
 
-.is-mobile #nav-text-svg, .is-narrow #nav-text-svg{
+.is-mobile #nav-text-svg{
   height: 100%;
 }
 
-.is-mobile #nav-contact-phone, .is-narrow #nav-contact-phone{
+.is-narrow #nav-contact-phone{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 2vh;
+  margin-right: 1vh;
+}
+
+.is-mobile #nav-contact-phone{
   height: 4vh;
   position: absolute;
   right: 0;
   top: 0;
-  margin: 2vh;
+  margin: 3vh;
 }
 
 .is-mobile #nav-phone-number{
   display: none;
 }
+
+
+
+.is-narrow #mcelec-header{
+  background-size: cover;
+}
+
+.is-mobile #mcelec-header{
+  background-size: 200%;
+}
+
+.is-mobile #header-content{
+  width: 80%;
+  min-width: unset;
+}
+
+.is-mobile #mcelec-statement{
+  font-size: 2.5vh;
+}
+
+.is-mobile #get-contacted-link{
+  font-size: 3vh;
+  height: auto;
+}
+
+.is-mobile #service-list ul li{
+  font-size: 2vh;
+}
+

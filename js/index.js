@@ -1,4 +1,5 @@
 
+const main = document.getElementById('mcelec-page')
 const navbar = document.getElementById("mcelec-nav");
 const reqForm = document.getElementById('request-form');
 const reqName = document.getElementById('request-name')
@@ -10,11 +11,11 @@ const options = document.getElementsByName('method-choice');
 let reqMethodElem = document.getElementById("by-phone")
 reqMethodElem.checked = "checked"
 
-window.onscroll = function () { 
-    if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50 ) {
+main.onscroll = function () { 
+    if (main.scrollTop >= 100) {
         navbar.classList.add("scrolled");
     } 
-    else {
+    else if (main.scrollTop == 0) {
         navbar.classList.remove("scrolled");
     }
 };
