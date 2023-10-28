@@ -29,23 +29,14 @@ html {
   --btn-height: 2;
 
   overflow: hidden;
-
+  width: 100%;
+  height: 100%;
 }
 
 
 html *{
   margin: 0; /*DO NOT CHANGE!!!!*/
   padding: 0; /*DO NOT CHANGE!!!!*/
-}
-
-::-webkit-selection {
-  color: var(--white-color);
-  background: var(--highlight-color);
-}
-
-::-moz-selection {
-  color: var(--white-color);
-  background: var(--highlight-color);
 }
 
 ::selection {
@@ -59,7 +50,7 @@ body {
   color: var(--white-color);
   background: var(--black-color);
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -71,15 +62,12 @@ main {
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
-  height: 100vh;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+  height: 100%;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   scroll-behavior: smooth;
-
 }
 
 hr{
@@ -97,8 +85,6 @@ a {
   font-size: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
   color: var(--light-grey-color);
   text-decoration: none;
-  -webkit-transition: color 0.5s;
-  -o-transition: color 0.5s;
   transition: color 0.5s;
 }
 
@@ -152,31 +138,24 @@ h3{
   align-items: center;
   display: flex;
   flex-direction: column;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
 }
 
 #mcelec-logo-svg{
   height: clamp(calc(var(--logo-height) * var(--scale-min)), calc(var(--logo-height) * var(--scale)), calc(var(--logo-height) * var(--scale-max)));
   margin-bottom: 2vh;
   margin-top: 2vh;
-  
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
+  transition: height 0.3s;
 }
 
 #mcelec-logo-side-svg{
   height: 0;
   margin-top: 0;
+  
 }
 
 html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   margin-left: 2vh;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
+  transition: height 0.3s;
   position: absolute;
   top: 35%;
   left: 0;
@@ -194,8 +173,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   font-weight: 600;
   font-family: Helvetica, sans-serif;
 }
-
-
 
 #mcelec-nav ul {
   display: flex;
@@ -215,7 +192,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   text-decoration: none;
 }
 
-
 #mcelec-nav ul li a.active {
   color: var(--white-color);
   display: flex;
@@ -231,7 +207,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   background: var(--highlight-color);
 }
 
-
 #nav-contact-phone{
   position: absolute;
   margin-right: 2vh;
@@ -239,9 +214,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   --hhh: calc(var(--hh)*0.60);
   height: var(--hhh);
   right: 0;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
+  transition: color 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -250,7 +223,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #nav-contact-text{
   display: none;
 }
-
 
 #nav-phone-icon, #nav-text-svg{
   height: 100%;
@@ -261,13 +233,10 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   height: 100%;
 } 
 
-
 #nav-contact-phone:hover #nav-phone-icon, #nav-contact-phone:focus #nav-phone-icon,
 #nav-contact-text:hover #nav-text-svg, #nav-contact-text:focus #nav-text-svg{
   filter: saturate(1000%) hue-rotate(60deg) brightness(250%);
 }
-
-
 
 #nav-phone-number{
   height: 1em;
@@ -277,8 +246,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   justify-content: center;
   color: var(--light-gey-color)
 }
-
-
 
 
 
@@ -313,22 +280,17 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 #header-content{
   width: 50%;
   min-width: 20em;
+  max-width: 100%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  border: 0.1vh solid var(--light-grey-color);
-  border-radius: 0px;
-  -webkit-backdrop-filter: 0px;
-  -moz-backdrop-filter: 0px;
-  -ms-backdrop-filter: 0px;
-  backdrop-filter: blur(3vh);
   margin-top: 8vh;
   margin-bottom: 4vh;
+  border: 0.1vh solid var(--light-grey-color);
+  border-radius: 0px;
+  backdrop-filter: blur(3vh);
 }
 
 
@@ -348,19 +310,14 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   letter-spacing: clamp(calc(var(--nav-letter-space) * var(--scale-min)), calc(var(--nav-letter-space) * var(--scale)), calc(var(--nav-letter-space) * var(--scale-max)));
   font-weight: 500;
   font-size: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
-  height: clamp(calc(var(--btn-height) * var(--scale-min)), calc(var(--btn-height) * var(--scale)), calc(var(--btn-height) * var(--scale-max)));
+  height: auto;
   width: auto;
   padding-inline: 1em;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.5s;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  border: 0.2em solid var(--highlight-color);
-  border-radius: 0px;
   text-shadow: black -0.03em 0.03em 0.1em;
   margin-bottom: 3vh;
+  transition: background-color 0.5s;
+  border: 0.2em solid var(--highlight-color);
+  border-radius: 0px;
 }
 
 #get-contacted-link:hover, 
@@ -393,10 +350,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   justify-content: flex-start;
   border-left: 0.1vh solid var(--light-grey-color);
   padding-left: 1vh;
-
 }
-
-
 
 #service-list ul li{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -404,7 +358,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   color: var(--white-color);
   display: flex;
   text-decoration: none;
-
 }
 
 
@@ -451,9 +404,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 .article-content {
   width: 60%;
   background: var(--black-color);
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
 }
 
 .article-content h2{
@@ -471,7 +421,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   color: var(--light-gey-color);
   text-align: justify;
 }
-
 
 
 
@@ -501,7 +450,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   justify-content: flex-start;
   flex-direction: column;
   font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
-
   width: 20em;
 }
 
@@ -553,7 +501,6 @@ input[type="Radio"]:not(:first-child){
   height: 100%;
   display: flex;
   align-items: center;
-  
 }
 
 #request-form input[type="Submit"]{ /*sumbit button*/
@@ -574,15 +521,12 @@ input[type="Radio"]:not(:first-child){
   margin: 10vh;
   text-align: center;
   font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
-
 }
 
 
 
 
 /*Narrow non-mobile//////////////////////////*/
-
-
 
 .is-narrow #nav-contact-phone{
   position: absolute;
@@ -658,8 +602,6 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   display: none;
 }
 
-
-
 .is-mobile #mcelec-header{
   background-position-x: left;
 }
@@ -691,7 +633,6 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   margin-top: 4vh;
 }
 
-
 .is-mobile #request-form{
   width: 60%;
 }
@@ -708,13 +649,11 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
 
 .is-mobile #request-name, .is-mobile #request-email, .is-mobile #request-number{
   font-size: 3vh;
-
 }
 
 .is-mobile .request-label{
   font-size: 1.75vh;
 }
-
 
 .is-mobile #call-or-text, .is-mobile #call-or-text a{
   font-size: 3vh;
@@ -724,7 +663,6 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
 .is-mobile #copyright{
   font-size: 2vh;
 }
-
 
 @media (max-width: 300px) {
   .is-mobile #mcelec-name{
@@ -769,35 +707,25 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   .is-mobile #service-list ul li{
     font-size: 5vh;
   }
-
-
   .is-mobile #request-form{
     width: 100%;
   }
-  
   .is-mobile #request-service{
    font-size: 8vh;
   }
-  
   .is-mobile #request-form input[type="Submit"]{ /*sumbit button*/
     font-size: 6vh;
   }
-  
   .is-mobile #request-name, .is-mobile #request-email, .is-mobile #request-number{
     font-size: 6vh;
-  
   }
-  
   .is-mobile .request-label{
     font-size: 4vh;
   }
-  
-  
   .is-mobile #call-or-text, .is-mobile #call-or-text a{
     font-size: 5vh;
     width: 80%
   }
-  
   .is-mobile #copyright{
     font-size: 4vh;
   }
