@@ -7,10 +7,13 @@ window.mobileCheck = function() {
             window.isMobile = true   
         }
     }
-    readMobile(navigator.userAgent||navigator.vendor||window.opera);
+    readMobile(navigator.userAgent||window.opera);
 };
 
 window.widthCheck = function(){
+    if(window.innerWidth <= 768){ window.isNarrow = true
+    }else{ window.isNarrow = false }
+
     if(window.innerWidth <= 768){ window.isNarrow = true
     }else{ window.isNarrow = false }
 }

@@ -2,28 +2,33 @@
 /*This site uses master values to control
 zooming and scaling for responsive design*/
 
+:root{
+  overflow: hidden;
+
+}
+
 html {
-  /* Margin Variables */
+  /* Color Variables */
   --white-color: rgb(243,243,243);
   --black-color: rgb(33, 33, 33);
   --light-grey-color: rgb(163, 163, 163);
-  --medium-grey-color: rgb(61, 61, 61);
   --dark-grey-color: rgb(39, 39, 39);
   --highlight-color: rgb(240, 135, 7);
 
-  /* Scaling Variables */
+  /* Font Scaling Variables for non-mobile*/
   --scale: 1rem; /*DO NOT CHANGE!!!!*/
   --scale-min: 1.25vh; /*positive vh only*/
   --scale-max: 3.2vh; /*positive vh only*/
-  --margin-header-top: 7; /*positive number only*/
 
-  /* size Variables */
+  /* size Variables, some overridden for mobile*/ 
   --logo-height: 1.5; /*positive number only*/
   --h1-height: 1; /*positive number only*/
   --h2-height: 1; /*positive number only*/
   --h3-height: 0.9; /*positive number only*/
   --nav-letter-space: 0.08; /*positive number only*/
   --btn-height: 2;
+
+  overflow: hidden;
 
 }
 
@@ -55,6 +60,11 @@ body {
   background: var(--black-color);
   width: 100%;
   height: 100vh;
+  overflow: hidden;
+}
+
+html:not(.is-mobile) body{
+  min-width: 500px;
 }
 
 main {
@@ -203,7 +213,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 
-#mcelec-nav ul li.active a {
+#mcelec-nav ul li a.active {
   color: var(--white-color);
   display: flex;
   flex-direction: column;
@@ -211,7 +221,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   position: relative;
 }
 
-#mcelec-nav ul li.active a:after {
+#mcelec-nav ul li a.active:after {
   content: '';
   width: 2em;
   height: 0.15em;
@@ -569,19 +579,30 @@ input[type="Radio"]:not(:first-child){
 
 /*Narrow non-mobile//////////////////////////*/
 
+
+
 .is-narrow #nav-contact-phone{
   position: absolute;
   right: 0;
   top: 0;
   margin-top: 2vh;
-  margin-right: 1vh;
+  margin-right: 2vh;
+  height: 4vh;
+}
+
+.is-narrow #nav-phone-number{
+  display: none;
 }
 
 .is-narrow #mcelec-header{
   background-size: cover;
 }
 
-
+html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
+  margin-block: 0;
+  top: 2vh;
+  height: 25%;
+}
 
 
 

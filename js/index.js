@@ -42,11 +42,8 @@ reqForm.onsubmit = function(event){
     event.preventDefault();
 
 
-    //todo validate inputs
-
     //validate name
     if(reqName.value.length == 0){
-        //todo show user
         alert('Please enter your name.')
         return false;
     }
@@ -58,7 +55,6 @@ reqForm.onsubmit = function(event){
                     /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/im.test(phone.value) ||
                     /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/im.test(phone.value)
         if(!validNumber){
-            //todo tell user
             alert('Invalid phone number. ')
             return false;
         }
@@ -69,8 +65,6 @@ reqForm.onsubmit = function(event){
             return false;
         }
     }
-
-
 
     const fd = new FormData(reqForm);
     const fdJson = JSON.stringify(Object.fromEntries(fd))
@@ -117,3 +111,41 @@ const validateEmail = (email) => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 };
+
+
+
+
+// const articles = document.getElementsByClassName('anchor')
+// console.log('articles', articles)
+// main.addEventListener("scroll", navHighlighter);
+
+// function navHighlighter() {
+//     let scrollY = main.scrollTop
+//     let furthest = articles[0]
+//     for(let i=0; i<articles.length; i++){
+//         const article = articles[i]
+//         const articleTop = article.getBoundingClientRect().top;
+//         let offset = 0;
+//         switch(i){
+            
+//             case 1:
+//                 offset = 200;
+//                 break;
+//             case 2:
+//                 offset = 700;
+//                 break;
+//             case 3:
+//                 offset = 1100;
+//                 break;
+//             case 4:
+//                 offset = 1400;
+//                 break;
+
+//         }
+//         if ( scrollY >= (articleTop + offset)){
+//             furthest = article
+//         }
+//         document.querySelector("a[href*=" + article.getAttribute("id") + "]").classList.remove("active");
+//     }
+//     document.querySelector("a[href*=" + furthest.getAttribute("id") + "]").classList.add("active");
+// }
