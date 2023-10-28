@@ -450,11 +450,15 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 .article-content p{
-  font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
+  text-indent: 4vh;
+  --ff: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
+  font-size: var(--ff);
+  line-height: 1.5em;
   margin-top: 2vh;
   color: var(--light-gey-color);
   text-align: justify;
 }
+
 
 
 
@@ -469,21 +473,12 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   flex-direction: column;
 }
 
-
-
 #request-service{
   font-size: clamp(calc(1.5 * var(--scale-min)), calc(1.5 * var(--scale)), calc(1.5 * var(--scale-max)));
   margin-top: 8vh;
   margin-bottom: 1vh;
   font-weight: 700;
 }
-
-#call-or-text{
-  font-size: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
-  margin-bottom: 2vh;
-
-}
-
 
 #request-form{
   margin: 5vh;
@@ -496,29 +491,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
   width: 20em;
 }
-
-
-#request-form input[type="Submit"]{ /*sumbit button*/
-  width: 90%;
-}
-
-#request-method input:not(:first-child){
-  margin-left: 2vh;
-}
-
-
-#request-type input:not(:first-child){
-  margin-left: 1vh;
-}
-
-#request-method >input,
-#request-type > input{
-  accent-color: var(--highlight-color);
-  margin-right: 0.5vh;
-  /* font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max))); */
-  
-}
-
 
 #request-name, #request-email, #request-number{
   height: 1.1em;
@@ -545,26 +517,34 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   justify-content: center;
 }
 
-.radio-group{
+#request-method, #request-type{
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 0.5vh;
   margin-bottom: 3vh;
-  width: 100%;
+  height: 1em;
 }
 
-.radio-group input{
-  --hh: clamp(calc(var(--h2-height) * var(--scale-min)), calc(var(--h2-height) * var(--scale)), calc(var(--h2-height) * var(--scale-max)));
-  width: var(--hh);
-  height: var(--hh);
-  font-size: var(--hh);
+input[type="Radio"]:not(:first-child){
+  margin-left: 2vh;
 }
 
-.request-label{
-  font-weight: 600;
+#request-method > input,
+#request-type > input{
+  box-sizing: border-box;
+  accent-color: var(--highlight-color);
+  margin-right: 0.5vh;
   font-size: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
-  text-align: center;
-  width: 100%;
+  width: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  
+}
+
+#request-form input[type="Submit"]{ /*sumbit button*/
+  width: 90%;
 }
 
 #form-submitting-proxy{ /*no redirect on submit*/
@@ -572,6 +552,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 #call-or-text{
+  font-size: clamp(calc(var(--h1-height) * var(--scale-min)), calc(var(--h1-height) * var(--scale)), calc(var(--h1-height) * var(--scale-max)));
   text-align: center;
   margin-bottom: 8vh;
 }
@@ -585,8 +566,31 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 
 
+
+/*Narrow non-mobile//////////////////////////*/
+
+.is-narrow #nav-contact-phone{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 2vh;
+  margin-right: 1vh;
+}
+
+.is-narrow #mcelec-header{
+  background-size: cover;
+}
+
+
+
+
+
 /*Mobile devices////////////////////////////////////////////*/
 
+.is-mobile h2{
+  font-size: 3vh;
+  height: auto;
+}
 
 .is-mobile #mcelec-logo-svg{
   height: 3vh;
@@ -594,14 +598,14 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 .is-mobile #mcelec-name{
   font-size: 2.5vh;
-  margin-bottom: 2vh;
+  height: auto;
 }
 
 .is-mobile #mcelec-nav ul{
-  margin-bottom: 1vh;;
+  margin-bottom: 1vh;
 }
 
-.is-mobile #mcelec-nav a{
+.is-mobile #mcelec-nav ul a{
   font-size: 2vh;
 }
 
@@ -618,14 +622,6 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   height: 100%;
 }
 
-.is-narrow #nav-contact-phone{
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin-top: 2vh;
-  margin-right: 1vh;
-}
-
 .is-mobile #nav-contact-phone{
   height: 4vh;
   position: absolute;
@@ -640,12 +636,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 
 
 
-.is-narrow #mcelec-header{
-  background-size: cover;
-}
-
 .is-mobile #mcelec-header{
-  background-size: 200%;
+  background-position-x: left;
 }
 
 .is-mobile #header-content{
@@ -666,3 +658,123 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   font-size: 2vh;
 }
 
+.is-mobile .article-content{
+  width: 80%;
+}
+
+.is-mobile .article-content p{
+  font-size: 2vh;
+  margin-top: 4vh;
+}
+
+
+.is-mobile #request-form{
+  width: 60%;
+}
+
+.is-mobile #request-service{
+ font-size: 4vh;;
+}
+
+.is-mobile #request-form input[type="Submit"]{ /*sumbit button*/
+  font-size: 3vh;
+  height: auto;
+  width: auto;
+}
+
+.is-mobile #request-name, .is-mobile #request-email, .is-mobile #request-number{
+  font-size: 3vh;
+
+}
+
+.is-mobile .request-label{
+  font-size: 1.75vh;
+}
+
+
+.is-mobile #call-or-text, .is-mobile #call-or-text a{
+  font-size: 3vh;
+  width: 80%
+}
+
+.is-mobile #copyright{
+  font-size: 2vh;
+}
+
+
+@media (max-width: 300px) {
+  .is-mobile #mcelec-name{
+    font-size: 2vh;
+  }
+  .is-mobile #mcelec-nav ul a{
+    font-size: 1.5vh;
+  }
+  .is-mobile .request-label{
+    font-size: 1.4vh;
+  }
+}
+
+@media (orientation: landscape) {
+  .is-mobile h2{
+    font-size: 8vh;
+  }
+  .is-mobile .article-content p{
+    font-size: 4vh;
+    line-height: 1em;
+  }
+  .is-mobile #mcelec-logo-svg{
+    height: 5vh;
+  }
+  .is-mobile #mcelec-name{
+    font-size: 4vh;
+  }
+  .is-mobile #mcelec-nav ul a{
+    font-size: 5vh;
+  }
+  .is-mobile #nav-contact-text, .is-mobile #nav-contact-phone{
+    height: 50%;
+    margin-inline: 6vh;
+    margin-block: 5vh;
+  }
+  .is-mobile #mcelec-statement{
+    font-size: 4vh;
+  }
+  .is-mobile #get-contacted-link{
+    font-size: 6vh;
+  }
+  .is-mobile #service-list ul li{
+    font-size: 5vh;
+  }
+
+
+  .is-mobile #request-form{
+    width: 100%;
+  }
+  
+  .is-mobile #request-service{
+   font-size: 8vh;
+  }
+  
+  .is-mobile #request-form input[type="Submit"]{ /*sumbit button*/
+    font-size: 6vh;
+  }
+  
+  .is-mobile #request-name, .is-mobile #request-email, .is-mobile #request-number{
+    font-size: 6vh;
+  
+  }
+  
+  .is-mobile .request-label{
+    font-size: 4vh;
+  }
+  
+  
+  .is-mobile #call-or-text, .is-mobile #call-or-text a{
+    font-size: 5vh;
+    width: 80%
+  }
+  
+  .is-mobile #copyright{
+    font-size: 4vh;
+  }
+}
