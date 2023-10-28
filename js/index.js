@@ -115,37 +115,27 @@ const validateEmail = (email) => {
 
 
 
-// const articles = document.getElementsByClassName('anchor')
-// console.log('articles', articles)
-// main.addEventListener("scroll", navHighlighter);
+const articles = document.getElementsByClassName('anchor')
+main.addEventListener("scroll", navHighlighter);
 
-// function navHighlighter() {
-//     let scrollY = main.scrollTop
-//     let furthest = articles[0]
-//     for(let i=0; i<articles.length; i++){
-//         const article = articles[i]
-//         const articleTop = article.getBoundingClientRect().top;
-//         let offset = 0;
-//         switch(i){
-            
-//             case 1:
-//                 offset = 200;
-//                 break;
-//             case 2:
-//                 offset = 700;
-//                 break;
-//             case 3:
-//                 offset = 1100;
-//                 break;
-//             case 4:
-//                 offset = 1400;
-//                 break;
+function navHighlighter() {
+    // let scrollY = main.scrollTop
+    let furthest = articles[0]
+    let last = 0;
+    for(let i=0; i<articles.length; i++){
+        const article = articles[i]
+        const vheight = main.getBoundingClientRect().height;
+        const articletop = article.getBoundingClientRect().top;
+        const screenpc = articletop/vheight
 
-//         }
-//         if ( scrollY >= (articleTop + offset)){
-//             furthest = article
-//         }
-//         document.querySelector("a[href*=" + article.getAttribute("id") + "]").classList.remove("active");
-//     }
-//     document.querySelector("a[href*=" + furthest.getAttribute("id") + "]").classList.add("active");
-// }
+        // const articleTop = article.getBoundingClientRect().top;
+        
+        if ( screenpc < 0.2){
+            furthest = article
+            last = screenpc;
+        }
+
+        document.querySelector("a[href*=" + article.getAttribute("id") + "]").classList.remove("active");
+    }
+    document.querySelector("a[href*=" + furthest.getAttribute("id") + "]").classList.add("active");
+}

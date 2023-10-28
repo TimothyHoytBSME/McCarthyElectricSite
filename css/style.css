@@ -103,9 +103,12 @@ a {
 }
 
 a:hover, a:active, a:focus {
-  color: var(--highlight-color);
   outline: none;
   text-decoration: none;
+}
+
+a:hover{
+  color: var(--highlight-color);
 }
 
 input:focus-visible, a:focus-visible{
