@@ -8,15 +8,35 @@ const phoneLabel = document.getElementById('label-for-request-number');
 const email = document.getElementById('request-email');
 const emailLabel = document.getElementById('label-for-request-email');
 const options = document.getElementsByName('method-choice');
+const articles = document.getElementsByClassName('anchor')
+const navLinks = document.getElementById('nav-links')
+const reqSend= document.getElementById('request-send')
+let scrolled = false;
+let furthest = articles[0]
 let reqMethodElem = document.getElementById("by-phone")
 reqMethodElem.checked = "checked"
 
+
 main.onscroll = function () { 
-    if (main.scrollTop >= 100) {
-        navbar.classList.add("scrolled");
-    } 
-    else if (main.scrollTop == 0) {
-        navbar.classList.remove("scrolled");
+    if (!scrolled && main.scrollTop >= 100) {  scrolled = true; navbar.classList.add("scrolled") } 
+    else if (scrolled && main.scrollTop == 0) { scrolled = false; navbar.classList.remove("scrolled") }
+
+    const vheight = main.getBoundingClientRect().height;
+    
+    let fchanged = false;
+    for(let i=0; i<articles.length; i++){
+        if ( (articles[i].getBoundingClientRect().top/vheight) < 0.2){ 
+            if(furthest != articles[i] ){
+                furthest = articles[i];  fchanged = true
+            }
+        }
+    }
+    
+    if(fchanged){
+        for (let i = 0; i < navLinks.children.length; i++) {
+            navLinks.children[i].firstChild.classList.remove("active");
+        }
+        document.querySelector("a[href*=" + furthest.getAttribute("id") + "]").classList.add("active");
     }
 };
   
@@ -41,15 +61,12 @@ function requestMethodChanged(){
 reqForm.onsubmit = function(event){
     event.preventDefault();
 
-
-    //validate name
     if(reqName.value.length == 0){
         alert('Please enter your name.')
         return false;
     }
 
     if(reqMethodElem.id == "by-phone" || reqMethodElem.id == "by-text"){
-        //validate number
         const validNumber = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone.value) ||
                     (/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/im.test(phone.value)) ||
                     /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/im.test(phone.value) ||
@@ -59,7 +76,6 @@ reqForm.onsubmit = function(event){
             return false;
         }
     }else{
-        //validate email
         if(!validateEmail(email.value)){
             alert('Invalid email. ')
             return false;
@@ -69,6 +85,7 @@ reqForm.onsubmit = function(event){
     const fd = new FormData(reqForm);
     const fdJson = JSON.stringify(Object.fromEntries(fd))
     const url = "https://mccarthyelectricinc.com.bomb.zone/request-contact/"
+    reqSend.value = "Sending..."
     const reqObj = postJson(url,fdJson,doOnDone)
 
     function doOnDone(){
@@ -84,12 +101,16 @@ reqForm.onsubmit = function(event){
             console.warn("POST FAILED", reqObj.status)
             alert('Your request was not received due to a server error invalid input. We apologize for the inconvenience. Please verify your name and contact method just in case.')
         }
+        reqSend.value = "Let Us Contact You"
+
     }
     return false; 
 }
 
 
 function postJson(url, json, doOnDone){
+
+
     const xhr = new XMLHttpRequest();
     xhr.open('POST',url)  
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -112,30 +133,3 @@ const validateEmail = (email) => {
     );
 };
 
-
-
-
-const articles = document.getElementsByClassName('anchor')
-main.addEventListener("scroll", navHighlighter);
-
-function navHighlighter() {
-    // let scrollY = main.scrollTop
-    let furthest = articles[0]
-    let last = 0;
-    for(let i=0; i<articles.length; i++){
-        const article = articles[i]
-        const vheight = main.getBoundingClientRect().height;
-        const articletop = article.getBoundingClientRect().top;
-        const screenpc = articletop/vheight
-
-        // const articleTop = article.getBoundingClientRect().top;
-        
-        if ( screenpc < 0.2){
-            furthest = article
-            last = screenpc;
-        }
-
-        document.querySelector("a[href*=" + article.getAttribute("id") + "]").classList.remove("active");
-    }
-    document.querySelector("a[href*=" + furthest.getAttribute("id") + "]").classList.add("active");
-}
