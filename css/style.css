@@ -93,7 +93,7 @@ a:hover, a:active, a:focus {
   text-decoration: none;
 }
 
-a:hover{
+html:not(.is-mobile) a:hover{
   color: var(--highlight-color);
 }
 

@@ -16,7 +16,6 @@ let furthest = articles[0]
 let reqMethodElem = document.getElementById("by-phone")
 reqMethodElem.checked = "checked"
 
-
 main.onscroll = function () { 
     if (!scrolled && main.scrollTop >= 100) {  scrolled = true; navbar.classList.add("scrolled") } 
     else if (scrolled && main.scrollTop == 0) { scrolled = false; navbar.classList.remove("scrolled") }
