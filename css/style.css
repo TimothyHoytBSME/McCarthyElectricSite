@@ -291,6 +291,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   border: 0.1vh solid var(--light-grey-color);
   border-radius: 0px;
   backdrop-filter: blur(3vh);
+  -webkit-backdrop-filter: blur(3vh);
 }
 
 
@@ -368,7 +369,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2vh;
+  margin-bottom: 6vh;
   width: 100%;
 }
 
@@ -378,7 +379,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   align-items: center;
   justify-content: space-between;
   gap: 0.1em;
-  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin-top: 4vh;
 }
 
 #click-for-more{
@@ -397,7 +399,8 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   flex-wrap: wrap;
   width: 90%;
   column-gap: 1.5em;
-  max-width: 60vh;
+  row-gap: 0.1em;;
+  max-width: 100vh;
   color: var(--light-grey-color)
 
   /* gap: 2em; */
@@ -426,7 +429,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 160vh;
+  max-width: 140vh; /*160vh*/
   margin-block: 4vh;
 }
 
@@ -445,10 +448,10 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 .article-img {
   width: 100%;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  height: 30vh;
+  height: 35vh;
   margin-bottom: 3vh;;
 }
 
@@ -484,6 +487,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
 
 #request-service{
@@ -676,7 +680,7 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
 }
 
 .is-mobile .main-location{
-  font-size: 2vh;
+  font-size: 2.5vh;
 }
 
 .is-mobile .article-content{
@@ -785,4 +789,15 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   .is-mobile #copyright{
     font-size: 4vh;
   }
+}
+
+
+/*Apple sucks*/
+
+.is-mobile.is-apple #nav-contact-text{
+  display: none;
+}
+
+.is-mobile.is-apple #mcelec-header{
+  background-attachment: scroll;
 }

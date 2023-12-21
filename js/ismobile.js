@@ -1,5 +1,6 @@
 window.isMobile = false
 window.isNarrow = false
+window.isApple = false
 
 window.mobileCheck = function() {
     function readMobile(a){
@@ -8,6 +9,7 @@ window.mobileCheck = function() {
             // alert("IS MOBILE")
         }else{
             // alert("IS NOT MOBILE")
+
         }
     }
     readMobile(navigator.userAgent||window.opera);
@@ -21,13 +23,22 @@ window.widthCheck = function(){
     }else{ window.isNarrow = false }
 }
 
+window.appleCheck = function(){
+    const userAgent = navigator.userAgent
+    if(/iPad|iPhone|iPod|Mac|Macintosh/.test(userAgent)){
+        window.isApple = true
+    }
+}
+
 function runChecks(){
-    window.mobileCheck();  window.widthCheck()
+    window.mobileCheck();  window.appleCheck(); window.widthCheck()
     const root = document.getElementsByTagName( 'html' )[0]; // '0' to assign the first (and only `HTML` tag)
     if(window.isMobile){root.classList.add ( 'is-mobile' )
     }else{ root.classList.remove ( 'is-mobile' ); }
     if(window.isNarrow){root.classList.add ( 'is-narrow' )
     }else{ root.classList.remove ( 'is-narrow' ); } 
+    if(window.isApple){root.classList.add ( 'is-apple' )
+    }else{ root.classList.remove ( 'is-apple' ); } 
 }
 
 onresize = (event) => { runChecks()}
