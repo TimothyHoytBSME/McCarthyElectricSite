@@ -1,0 +1,21 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/bombzone/mccarthyelectricinc.com"
+PassengerBaseURI "/"
+PassengerNodejs "/home/bombzone/nodevenv/mccarthyelectricinc.com/10/bin/node"
+PassengerAppType node
+PassengerStartupFile app.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+RewriteEngine on
+
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^www\.mccarthyelectricinc\.com$
+RewriteRule ^/?$ "https\:\/\/mccarthyelectricinc\.com\/" [R=301,L]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^www\.mccarthyelectricinc\.com$
+RewriteRule ^dev$ "https\:\/\/mccarthyelectricinc\.com\/dev" [R=301,L]

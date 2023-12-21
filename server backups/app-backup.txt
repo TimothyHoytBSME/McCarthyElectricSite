@@ -1,0 +1,96 @@
+
+const createError = require('http-errors');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const nodeMailer = require('nodemailer');
+const fs = require('fs');
+const port = process.env.PORT || 3000;
+const McElecInc = "/home/bombzone/mccarthyelectricinc.com/mcelecinc/";
+const McElecIncUC= "/home/bombzone/mccarthyelectricinc.com/underconstruction/";
+const app = express();
+
+app.use(express.json());
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(cors());
+
+// Handling Errors
+app.use((err, req, res, next) => {
+    //console.log('server error');
+    err.statusCode = err.statusCode || 500;
+    err.message = err.message || "Internal Server Error";
+    res.status(err.statusCode).json({
+      message: err.message
+    });
+});
+
+
+app.use('/robots.txt', function (req, res, next) {
+    res.type('text/plain')
+    res.send("User-agent: *\nDisallow: /dev/");
+});
+
+app.use('/', express.static(McElecIncUC));
+
+app.use('/dev', express.static(McElecInc));
+
+
+//customer contact form API point
+app.post('/request-contact', function (req, res) {
+    
+    
+    const reqname = req.body.user_name;
+    const reqtype = req.body["type-choice"];
+    const reqemail = req.body.user_email;
+    const reqnumber = req.body.user_number;
+    const reqchoice = req.body["method-choice"];
+    
+    const messagetosend = reqname + " requests " + reqtype + `, and can be contacted by ` + reqchoice +" at " + ((reqchoice == 'email')? reqemail : reqnumber);
+    
+    fs.appendFile('requestlog.txt', "Request Recieved: " + JSON.stringify(req.body)+"\n", function (err) {
+        if (err) throw err;
+    });
+    
+    const transporter = nodeMailer.createTransport({
+        host: 'mail.mccarthyelectricinc.com', 
+        port: 465, 
+        secure: true, 
+        auth: {
+          user: 'notifications@mccarthyelectricinc.com',
+          pass: 'two47zero'
+        }
+    });
+    
+    const mailOptions = {
+        from: "notifications@mccarthyelectricinc.com",
+        to: "timothyhoytbsme@gmail.com",
+        subject: "test notification",
+        text: messagetosend,
+    };
+    
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            process.stderr.write(JSON.stringify(error));
+            fs.appendFile('requestlog.txt', "Notification not sent: " + JSON.stringify(error)+"\n", function (err) {
+                if (err) throw err;
+            });
+        }else{
+            fs.appendFile('requestlog.txt', "Notification sent: " + messagetosend + "\n", function (err) {
+                if (err) throw err;
+            });
+        }
+    });
+    
+    res.status(200).send('Request Received');
+});
+
+
+
+
+app.listen(port,() => console.log('Server is running on port ' + port.toString()));
