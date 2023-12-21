@@ -361,7 +361,54 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
 }
 
 
+/*Locations//////////////////////////////////////////////////*/
 
+#mcelec-locations{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+  width: 100%;
+}
+
+#locations-title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.1em;
+  margin-top: 1vh;
+}
+
+#click-for-more{
+  font-size: clamp(calc(0.6 * var(--scale-min)), calc(0.6 * var(--scale)), calc(0.6 * var(--scale-max)));
+  color: var(--light-grey-color)
+}
+
+#mcelec-locations h2{
+  font-weight: 700;
+}
+
+#main-locations{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+  column-gap: 1.5em;
+  max-width: 60vh;
+  color: var(--light-grey-color)
+
+  /* gap: 2em; */
+  
+}
+
+.main-location{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(calc(var(--h2-height) * var(--scale-min)), calc(var(--h2-height) * var(--scale)), calc(var(--h2-height) * var(--scale-max)));
+  font-weight: 300;
+}
 
 /*Articles///////////////////////////////////////*/
 
@@ -381,6 +428,10 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   justify-content: center;
   max-width: 160vh;
   margin-block: 4vh;
+}
+
+#mcelec-articles article h2{
+  margin-bottom: 2vh;
 }
 
 .anchor{ /*internal article link anchors*/
@@ -417,7 +468,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   --ff: clamp(calc(var(--h3-height) * var(--scale-min)), calc(var(--h3-height) * var(--scale)), calc(var(--h3-height) * var(--scale-max)));
   font-size: var(--ff);
   line-height: 1.5em;
-  margin-top: 2vh;
+  /* margin-top: 2vh; */
   color: var(--light-gey-color);
   text-align: justify;
 }
@@ -624,13 +675,17 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   font-size: 2vh;
 }
 
+.is-mobile .main-location{
+  font-size: 2vh;
+}
+
 .is-mobile .article-content{
   width: 80%;
 }
 
 .is-mobile .article-content p{
   font-size: 2vh;
-  margin-top: 4vh;
+  /* margin-top: 4vh; */
 }
 
 .is-mobile #request-form{
@@ -707,6 +762,7 @@ html.is-narrow:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-side-svg{
   .is-mobile #service-list ul li{
     font-size: 5vh;
   }
+  
   .is-mobile #request-form{
     width: 100%;
   }
