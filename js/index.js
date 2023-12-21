@@ -11,9 +11,11 @@ const options = document.getElementsByName('method-choice');
 const articles = document.getElementsByClassName('anchor')
 const navLinks = document.getElementById('nav-links')
 const reqSend= document.getElementById('request-send')
+
 let scrolled = false;
 let furthest = articles[0]
 let reqMethodElem = document.getElementById("by-phone")
+
 reqMethodElem.checked = "checked"
 
 main.onscroll = function () { 
@@ -92,6 +94,8 @@ reqForm.onsubmit = function(event){
             console.log("POST SUCCESSFUL", reqObj.status)
             alert('Your request has been sent! We will get back to you as soon as able.')
             reqForm.reset();
+            reqMethodElem.checked = "checked"
+
         }else if(reqObj.error){
             console.error("POST NOT SENT ERROR", reqObj.status)
             alert('Your request was not sent due to a technical error. We apologize for the inconvenience.')
@@ -132,3 +136,4 @@ const validateEmail = (email) => {
     );
 };
 
+const testobj = {"user_name":"Timothy","method-choice":"text","user_number":"456-456-4567","user_email":"","type-choice":"planning"}
