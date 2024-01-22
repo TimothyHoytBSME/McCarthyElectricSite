@@ -474,6 +474,7 @@ html:not(.is-mobile) #mcelec-nav.scrolled #mcelec-logo-svg{
   /* margin-top: 2vh; */
   color: var(--light-gey-color);
   text-align: justify;
+  hyphens: auto;
 }
 
 
